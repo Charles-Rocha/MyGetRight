@@ -250,7 +250,6 @@ object frmPrincipal: TfrmPrincipal
     Height = 176
     Align = alClient
     TabOrder = 1
-    ExplicitHeight = 178
     object grbInformacoesGerais: TGroupBox
       Left = 8
       Top = 6
@@ -332,9 +331,9 @@ object frmPrincipal: TfrmPrincipal
       object lblTamanhoArquivo2: TLabel
         Left = 135
         Top = 52
-        Width = 24
+        Width = 30
         Height = 13
-        Caption = '0 KB'
+        Caption = '0 KBs'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlue
         Font.Height = -11
@@ -384,8 +383,6 @@ object frmPrincipal: TfrmPrincipal
     Height = 38
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 408
-    ExplicitWidth = 712
     object btnFechar: TBitBtn
       Left = 588
       Top = 6

@@ -23,10 +23,6 @@ object frmHistoricoDownloads: TfrmHistoricoDownloads
     Align = alClient
     Caption = 'Panel1'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 774
-    ExplicitHeight = 159
     object RichEdit1: TRichEdit
       Left = 1
       Top = 1
@@ -42,10 +38,6 @@ object frmHistoricoDownloads: TfrmHistoricoDownloads
       ScrollBars = ssBoth
       TabOrder = 0
       Zoom = 100
-      ExplicitLeft = 68
-      ExplicitTop = 38
-      ExplicitWidth = 650
-      ExplicitHeight = 254
     end
   end
   object pnlBotoes: TPanel
@@ -55,9 +47,6 @@ object frmHistoricoDownloads: TfrmHistoricoDownloads
     Height = 38
     Align = alBottom
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 173
-    ExplicitWidth = 774
     DesignSize = (
       790
       38)

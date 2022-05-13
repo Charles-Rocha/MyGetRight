@@ -57,7 +57,7 @@ type
     Ftempo: TDateTime;
     FPorcentagem: Real;
 
-    function ValidaObrigatorios: boolean;
+    function ValidaCampoUrl: boolean;
     function NomeArquivoLink(Url: string): string;
     function RetornaKiloBytes(ValorAtual: real): string;
     function RetornaPorcentagem(ValorMaximo, ValorAtual: real): string;
@@ -114,6 +114,7 @@ var
 begin
   sExtensao := ExtractFileExt(edtUrl.Text);
   SaveDialog1.Filter := 'Arquivos' + sExtensao + '|*' + sExtensao;
+  SaveDialog1.FileName := NomeArquivoLink(edtUrl.Text);
   if SaveDialog1.Execute then
     begin
       sPath := ExtractFileExt(SaveDialog1.FileName);
@@ -135,6 +136,7 @@ var
   sTamanhoEmKB: string;
 begin
   lblNomeArquivo2.Caption := NomeArquivoLink(edtUrl.Text);
+  Application.ProcessMessages;
   DM.IdHTTP1.OnWork := IdHTTP1OnWork;
   DM.IdHTTP1.OnWorkBegin := IdHTTP1OnWorkBegin;
   DM.IdHTTP1.OnWorkEnd := IdHTTP1OnWorkEnd;
@@ -145,7 +147,7 @@ end;
 
 procedure TfrmPrincipal.btnIniciarDownloadClick(Sender: TObject);
 begin
-  if ValidaObrigatorios then
+  if ValidaCampoUrl then
     begin
       try
         FPorcentagem := 0;
@@ -154,16 +156,16 @@ begin
         threadMonitor.Url := edtUrl.Text;
         threadMonitor.NomeArquivoLink := SalvarArquivoEmDisco;
 
+        threadMonitor.DataInicio := Now();
+        frmPrincipal.ClientHeight := 300;
+        Application.ProcessMessages;
+        PreencheInformacoesGerais;
+        threadMonitor.Start;
         if not (Timer1.Enabled) then
           begin
             Ftempo := Time;
             Timer1.Enabled := true;
           end;
-
-        threadMonitor.DataInicio := Now();
-        PreencheInformacoesGerais;
-        threadMonitor.Start;
-        frmPrincipal.ClientHeight := 300;
       except
         on E: Exception do
           begin
@@ -235,7 +237,7 @@ var
   sCaminhoExe: string;
 begin
   sCaminhoExe := ExtractFilePath(Application.ExeName);
-  DM.FDConnection1.Params.Database := sCaminhoExe + 'bd\MyGetRight.db';
+  DM.FDConnection1.Params.Database := '..\..\bd\MyGetRight.db';
   frmPrincipal.ClientHeight := 124;
 end;
 
@@ -262,7 +264,10 @@ begin
   FPorcentagem := 0;
 end;
 
-function TfrmPrincipal.ValidaObrigatorios: boolean;
+function TfrmPrincipal.ValidaCampoUrl: boolean;
+var
+  sExtensao, sArquivo, sNomeArquivo, sPrefixoUrl: string;
+  pos: ShortInt;
 begin
   Result := false;
   if edtUrl.Text = EmptyStr then
@@ -272,7 +277,28 @@ begin
     end
   else
     begin
-      Result := true;
+      pos := LastDelimiter('/', edtUrl.Text);
+      sArquivo := Copy(edtUrl.Text, pos + 1, MaxInt);
+      sExtensao := ExtractFileExt(sArquivo);
+      sNomeArquivo := ChangeFileExt(ExtractFileName(sArquivo), EmptyStr);
+      if (sExtensao = EmptyStr) or (sNomeArquivo = EmptyStr) then
+        begin
+          Application.MessageBox('Url inválida. Sem nome ou extensão do arquivo','Aviso',mb_Ok+mb_IconExclamation);
+          edtUrl.SetFocus;
+        end
+      else
+        begin
+          sPrefixoUrl := copy(edtUrl.Text, 0, 4);
+          if sPrefixoUrl <> 'http' then
+            begin
+              Application.MessageBox('Url inválida. Não tem o prefixo http','Aviso',mb_Ok+mb_IconExclamation);
+              edtUrl.SetFocus;
+            end
+          else
+            begin
+              Result := true;
+            end;
+        end;
     end;
 end;
 
@@ -281,15 +307,15 @@ begin
   if FPorcentagem > 0 then
     begin
       case Application.MessageBox('Existe um download em andamento, fechar assim mesmo?','Confirmação',MB_yesno+MB_iconInformation) of
-      id_yes:
-        begin
-          DM.IdHTTP1.Disconnect;
-          Application.Terminate;
-        end;
-      id_no:
-        begin
-          abort;
-        end;
+        id_yes:
+          begin
+            DM.IdHTTP1.Disconnect;
+            Application.Terminate;
+          end;
+        id_no:
+          begin
+            abort;
+          end;
       end;
     end
   else

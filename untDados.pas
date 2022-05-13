@@ -19,6 +19,7 @@ type
   public
     { Public declarations }
     procedure InserirLogDownload;
+    function ListarHistoricoDownloads: TFDQuery;
 
     property Url: string read FUrl write FUrl;
     property DataInicio: TDateTime read FDataInicio write FDataInicio;
@@ -71,7 +72,40 @@ begin
     qryInserir.Free;
     qryGetMaxCod.Free;
   end;
+end;
 
+function TDados.ListarHistoricoDownloads: TFDQuery;
+var
+  qryListarHistorico: TFDQuery;
+  //qryListarHistorico: TFDQuery;
+  //sCodigo, sUrl, sDataInicio, sDataFim: string;
+begin
+  qryListarHistorico := TFDQuery.Create(nil);
+  qryListarHistorico.Connection := DM.FDConnection1;
+
+  //qryListarHistorico := TFDQuery.Create(nil);
+  //qryListarHistorico.Connection := DM.FDConnection1;
+
+  try
+    qryListarHistorico.Close;
+    qryListarHistorico.SQL.Clear;
+    qryListarHistorico.SQL.Add('SELECT * FROM LOGDOWNLOAD ');
+    qryListarHistorico.Open;
+
+    Result := qryListarHistorico;
+
+    {while not qryListarHistorico.Eof do
+      begin
+        sCodigo := qryVerHistorico.FieldByName('CODIGO').AsString;
+        sUrl := qryVerHistorico.FieldByName('URL').AsString;
+        sDataInicio := qryVerHistorico.FieldByName('DATAINICIO').AsString;
+        sDataFim := qryVerHistorico.FieldByName('DATAFIM').AsString;
+        qryListarHistorico.Next;
+      end;}
+
+  finally
+    //qryListarHistorico.Free;
+  end;
 end;
 
 end.
