@@ -16,12 +16,12 @@
 
 ## 🛠 Ferramentas
 
-- [Delphi XE7](https://www.embarcadero.com/br/){:target="_blank"}
-- [SQLite](https://www.sqlite.org/index.html){:target="_blank"}
-- [SQLite Studio](https://sqlitestudio.pl/){:target="_blank"}
-- [Git](https://git-scm.com/){:target="_blank"}
-- [Tortoise Git](https://tortoisegit.org/){:target="_blank"}
-- [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}
+- [Delphi XE7](https://www.embarcadero.com/br/)
+- [SQLite](https://www.sqlite.org/index.html)
+- [SQLite Studio](https://sqlitestudio.pl/)
+- [Git](https://git-scm.com/)
+- [Tortoise Git](https://tortoisegit.org/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 ## 💡 Funcionalidades
 
