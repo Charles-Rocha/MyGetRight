@@ -33,6 +33,8 @@
 
 - **Exibir histórico de download**: Exibe o histórico dos downloads efetuados, sendo informado o **Código**, a **Url**, a **Data de Início** e a **Data final**.
 
+- **Fechar**: Ao clicar nesse botão, se houver algum download em andamento, o usuário será perguntado se deseja prosseguir, caso sim, o download é interrompido e a aplicação se encerra, caso contrário, o download prossegue normalmente.
+
 - **Limpar**: Limpa o conteúdo do campo **Url**.
 
 ## 📄 Licença
