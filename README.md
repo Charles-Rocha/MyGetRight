@@ -5,7 +5,7 @@
 
 ## Índice
 - [Sobre](#📘-sobre)
-- [Feramentas](#🛠-ferramentas)
+- [Feramentas](#🛠-ferramentasferramentas)
 - [Funcionalidades](#💡-funcionalidades)
 - [Licença](#📄-licença)
 
@@ -29,7 +29,7 @@
 
 - **Parar download**: Uma vez iniciado o download, ao clicar nesse botão, o download é interrompido automaticamente.
 
-- **Exibir mensagem**: Uma vez iniciado o download, ao clicar nesse botão, é exibida uma mensagem com indicando a porcentagem atual do download.
+- **Exibir mensagem**: Uma vez iniciado o download, ao clicar nesse botão, é exibida uma mensagem indicando a porcentagem atual do download.
 
 - **Exibir histórico de download**: Exibe o histórico dos downloads efetuados, sendo informado o **Código**, a **Url**, a **Data de Início** e a **Data final**.
 
