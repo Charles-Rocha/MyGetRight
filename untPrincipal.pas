@@ -40,7 +40,6 @@ type
     ProgressBar1: TProgressBar;
     Timer1: TTimer;
     SaveDialog1: TSaveDialog;
-    procedure Button2Click(Sender: TObject);
     procedure btnIniciarDownloadClick(Sender: TObject);
     procedure btnPararDownloadClick(Sender: TObject);
     procedure btnExibirHistoricoDownloadsClick(Sender: TObject);
@@ -51,7 +50,6 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure btnExibirMensagemClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     Ftempo: TDateTime;
@@ -122,6 +120,10 @@ begin
         sPath := SaveDialog1.FileName + sExtensao
       else
         sPath := SaveDialog1.FileName;
+    end
+  else
+    begin
+      abort;
     end;
   Result := sPath;
 end;
@@ -211,12 +213,6 @@ begin
   Application.MessageBox(PChar('Porcentagem atual é: ' + lblProgressoDownload2.Caption),'Aviso',mb_Ok+mb_IconExclamation);
 end;
 
-procedure TfrmPrincipal.Button2Click(Sender: TObject);
-begin
-  //DM.FDConnection1.Connected := true;
-  //DM.FDTable1.Active := true;
-end;
-
 procedure TfrmPrincipal.edtUrlChange(Sender: TObject);
 begin
   frmPrincipal.ClientHeight := 124;
@@ -225,11 +221,6 @@ end;
 procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   VerificarAndamentoDownload;
-end;
-
-procedure TfrmPrincipal.FormCreate(Sender: TObject);
-begin
-  //
 end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);
@@ -244,7 +235,6 @@ end;
 procedure TfrmPrincipal.IdHTTP1OnWork(ASender: TObject; AWorkMode: TWorkMode; AWorkCount: Int64);
 begin
   ProgressBar1.Position := AWorkCount;
-  //lblTamanhoArquivo2.Caption    := 'Baixando ... ' + RetornaKiloBytes(AWorkCount);
   lblProgressoDownload2.Caption := RetornaPorcentagem(ProgressBar1.Max, AWorkCount);
 end;
 
@@ -257,7 +247,6 @@ end;
 procedure TfrmPrincipal.IdHTTP1OnWorkEnd(ASender: TObject; AWorkMode: TWorkMode);
 begin
   ProgressBar1.Position := frmPrincipal.ProgressBar1.Max;
-  //frmPrincipal.Label1.caption := 'Download Concluído!';
   threadMonitor.DataFim := Now();
   btnIniciarDownload.Enabled := true;
   Timer1.Enabled := false;

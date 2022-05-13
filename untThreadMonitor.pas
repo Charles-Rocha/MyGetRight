@@ -53,36 +53,6 @@ begin
   end;
 end;
 
-{procedure TfThreadMonitor.Download;
-var
-  Http: TIdHTTP;
-  MS: TMemoryStream;
-  LHandler: TIdSSLIOHandlerSocketOpenSSL;
-  url: string;
-begin
-  url := frmPrincipal.edtUrl.text;
-  Http := TIdHTTP.Create(nil);
-  Http.HandleRedirects := True;
-  try
-    MS := TMemoryStream.Create;
-    LHandler := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
-    LHandler.SSLOptions.SSLVersions := [sslvTLSv1_2];
-    try
-      Http.IOHandler := LHandler;
-      //Http.OnWork := HttpWork;
-      //Http.OnRedirect:= HttpRedirect;
-//    Http.RedirectMaximum:=9;
-      Http.Get(url, MS);
-      MS.SaveToFile('C:\Projetos\Delphi XE7\MyGetRight\abc.exe');
-    finally
-      MS.Free;
-      LHandler.Free;
-    end;
-  finally
-    Http.Free;
-  end;
-end;}
-
 procedure TfThreadMonitor.Execute;
 begin
   Download;

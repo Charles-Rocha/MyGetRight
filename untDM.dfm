@@ -59,35 +59,4 @@ object DM: TDM
     Left = 27
     Top = 15
   end
-  object qryHistoricoDownloads: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      'SELECT CODIGO, URL, DATAINICIO, DATAFIM'
-      'FROM LOGDOWNLOAD')
-    Left = 356
-    Top = 87
-    object qryHistoricoDownloadsCODIGO: TFMTBCDField
-      FieldName = 'CODIGO'
-      Origin = 'CODIGO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Precision = 22
-      Size = 0
-    end
-    object qryHistoricoDownloadsURL: TStringField
-      FieldName = 'URL'
-      Origin = 'URL'
-      Required = True
-      Size = 600
-    end
-    object qryHistoricoDownloadsDATAINICIO: TDateTimeField
-      FieldName = 'DATAINICIO'
-      Origin = 'DATAINICIO'
-      Required = True
-    end
-    object qryHistoricoDownloadsDATAFIM: TDateTimeField
-      FieldName = 'DATAFIM'
-      Origin = 'DATAFIM'
-    end
-  end
 end

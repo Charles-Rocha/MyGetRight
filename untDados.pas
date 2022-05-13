@@ -77,14 +77,9 @@ end;
 function TDados.ListarHistoricoDownloads: TFDQuery;
 var
   qryListarHistorico: TFDQuery;
-  //qryListarHistorico: TFDQuery;
-  //sCodigo, sUrl, sDataInicio, sDataFim: string;
 begin
   qryListarHistorico := TFDQuery.Create(nil);
   qryListarHistorico.Connection := DM.FDConnection1;
-
-  //qryListarHistorico := TFDQuery.Create(nil);
-  //qryListarHistorico.Connection := DM.FDConnection1;
 
   try
     qryListarHistorico.Close;
@@ -93,17 +88,8 @@ begin
     qryListarHistorico.Open;
 
     Result := qryListarHistorico;
-
-    {while not qryListarHistorico.Eof do
-      begin
-        sCodigo := qryVerHistorico.FieldByName('CODIGO').AsString;
-        sUrl := qryVerHistorico.FieldByName('URL').AsString;
-        sDataInicio := qryVerHistorico.FieldByName('DATAINICIO').AsString;
-        sDataFim := qryVerHistorico.FieldByName('DATAFIM').AsString;
-        qryListarHistorico.Next;
-      end;}
-
   finally
+    //Não necessário, ao instanciar a classe Dados, ao liberá-la, esse objeto será liberado automaticamente
     //qryListarHistorico.Free;
   end;
 end;

@@ -21,11 +21,6 @@ type
     FDConnection1: TFDConnection;
     IdSSLIOHandlerSocketOpenSSL1: TIdSSLIOHandlerSocketOpenSSL;
     IdHTTP1: TIdHTTP;
-    qryHistoricoDownloads: TFDQuery;
-    qryHistoricoDownloadsURL: TStringField;
-    qryHistoricoDownloadsDATAINICIO: TDateTimeField;
-    qryHistoricoDownloadsDATAFIM: TDateTimeField;
-    qryHistoricoDownloadsCODIGO: TFMTBCDField;
   private
     { Private declarations }
   public

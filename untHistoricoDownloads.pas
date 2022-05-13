@@ -55,8 +55,6 @@ begin
     try
       qryHistorico := Dados.ListarHistoricoDownloads;
       RichEdit1.Lines.Clear;
-      //DM.qryHistoricoDownloads.Close;
-      //DM.qryHistoricoDownloads.Open();
 
       if not qryHistorico.IsEmpty then
         begin
