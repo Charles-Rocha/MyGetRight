@@ -4,10 +4,10 @@
 </h1>
 
 ## Índice
-- [Sobre](#📘-sobre)
-- [Feramentas](#🛠-ferramentasferramentas)
-- [Funcionalidades](#💡-funcionalidades)
-- [Licença](#📄-licença)
+- [Sobre](#-sobre)
+- [Feramentas](#-ferramentasferramentas)
+- [Funcionalidades](#-funcionalidades)
+- [Licença](#-licença)
 
 
 ## 📘 Sobre
