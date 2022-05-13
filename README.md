@@ -5,7 +5,7 @@
 
 ## Índice
 - [Sobre](#-sobre)
-- [Feramentas](#-ferramentasferramentas)
+- [Feramentas](#-ferramentas)
 - [Funcionalidades](#-funcionalidades)
 - [Licença](#-licença)
 
