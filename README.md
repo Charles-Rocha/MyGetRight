@@ -1,6 +1,8 @@
-<h1 align="center">
+<h1 align="center">    
     <p>MyGetRight</p>
-    <img src="./programa.png"/>
+    <img src="./programa_tela_1.png"/>
+    </br></br>    
+    <img src="./programa_tela_2.png"/>
 </h1>
 
 ## Índice
