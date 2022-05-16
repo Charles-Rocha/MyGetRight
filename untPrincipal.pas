@@ -171,7 +171,7 @@ begin
       except
         on E: Exception do
           begin
-            Application.MessageBox(PChar('Erro encontrado ao tentar fazer o download' + #13#13 + E.Message),'Aviso',mb_Ok+mb_IconExclamation);
+            Application.MessageBox(PChar('Não foi possível realizar o download' + #13#13 + E.Message),'Aviso',mb_Ok+mb_IconExclamation);
             btnIniciarDownload.Enabled := true;
           end;
       end;
