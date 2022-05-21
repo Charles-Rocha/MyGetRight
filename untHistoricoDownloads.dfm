@@ -76,7 +76,7 @@ object frmHistoricoDownloads: TfrmHistoricoDownloads
       Width = 75
       Height = 25
       Anchors = [akTop, akRight]
-      Caption = 'Fechar'
+      Caption = '&Fechar'
       Glyph.Data = {
         36030000424D3603000000000000360000002800000010000000100000000100
         18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
