@@ -2,8 +2,9 @@ object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'MyGetRight'
-  ClientHeight = 300
+  ClientHeight = 310
   ClientWidth = 672
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -246,9 +247,10 @@ object frmPrincipal: TfrmPrincipal
     Left = 0
     Top = 86
     Width = 672
-    Height = 176
+    Height = 186
     Align = alClient
     TabOrder = 1
+    ExplicitHeight = 176
     object grbInformacoesGerais: TGroupBox
       Left = 8
       Top = 6
@@ -377,17 +379,18 @@ object frmPrincipal: TfrmPrincipal
   end
   object pnlBotoes: TPanel
     Left = 0
-    Top = 262
+    Top = 272
     Width = 672
     Height = 38
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 262
     object btnFechar: TBitBtn
       Left = 588
       Top = 6
       Width = 75
       Height = 25
-      Caption = 'Fechar'
+      Caption = '&Fechar'
       Glyph.Data = {
         36030000424D3603000000000000360000002800000010000000100000000100
         18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
